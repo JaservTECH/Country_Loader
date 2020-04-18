@@ -1,8 +1,16 @@
 <?php
+namespace Country\ID;
 class Province32 {
     public $dataKota=null;
     public $info=null;
-    public function initialize()
+    
+	private function __CLONE(){}
+    private function __WAKEUP(){}
+    private static $instance = null;
+    public static function Get(){if(self::$instance === null){self::$instance = new static();} return self::$instance;}
+    
+	
+    public function __CONSTRUCT()
     {
         $this->info = new stdClass();
         $this->info->nama = "MALUKU UTARA";
@@ -21,6 +29,5 @@ class Province32 {
             "KOTA TERNATE",
             "KOTA TIDORE KEPULAUAN",
         );
-        return new Province32();
     }
 }
